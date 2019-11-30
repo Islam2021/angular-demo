@@ -1,0 +1,75 @@
+Angular 7 Demo
+
+1- input, output
+=> how to mirror data from parent comp to child comp?
+-> import {Input } from '@angular/core'
+-> @Input('alias') and my variables
+
+=> how to mirror data from child comp to parent comp?
+-> import {Output} from '@angular/core'
+-> event binding
+-> Output() EventName = new EventEmiter
+
+2- Routing 
+=> import {RouterModule} from '@angular/router';
+=> RouterModule.forRoot([
+   {path: '', component: ComponentName},
+])
+=> routerLink="/path"
+-> routerLinkActive="className" for acrive link
+-> [roterLinkActiveOptions]="{exact: true}"
+   <router-outlet></router-outlet> for display
+********************
+=> router paramitar demo: www.siteName.com/ComponentName/id
+-> {path: '/path/:id', component: ComponentName},
+-> [routerLink]="['path', id]"
+-> import {ActivatedRouter} from '@angular/router';
+and add to constructor
+-> constructor(private route: ActivatedRouter){
+      this.route.paramMap.subscribe(params => params.get('id'));
+   }
+********************
+=> query paramitar demo: www.siteName.com/ComponentName?id= value
+-> {path: '/path', component: ComponentName},   
+-> [queryParams]="{id: 1, anther param}"}
+-> constructor(private route: ActivatedRouter){
+      this.route.queryparamMap.subscribe(params => params.get('id'));
+   }
+
+3- Routing Navigation
+-> add button to ex: profile component <button (click)="goHome()"> Back to home </button>
+-> import {Router} from '@angular/router'; 
+-> constructor(private router: Router){}
+-> goHome() {
+      this.router.navigate(['/'], {queryParams: {id: 1}}); 
+   }
+
+4- Lifecycle Hooks
+-> constructor() {} --> 1
+-> ngOnInit() {}  --> 3
+-> ngOnChanges() {} --> 2
+-> ngDoChecked() {} --> 4
+-> ngAfterContentInit() {} --> 5
+-> ngAfterContentChecked() {} --> 6
+-> ngAfterViewInit() {} --> 7
+-> ngAfterViewChecked() {} --> 8
+-> ngOnDestroy() {} --> when damaged component
+
+5- Host Listener Func
+-> import {HostListener} from '@angular/core';
+-> @HostListener('click') myClick() {
+      console.log('clicked');
+   }
+
+6- Pipes
+-> {{title | lowercase}}  lowercase for small word
+-> {{title | titlecase}}  titlecase for captilaize word
+-> {{title | upparcase}}  upparcase for CAPTILAIZE word
+-> {{title | slice: 0:5}}  slice word from 0 to 5
+-> {{title | json}}  display word like string ex: title: {name: 'islam'} => {"name","islam"}
+-> {{title | number}}  display format numbar xxx,xxx,xxx
+-> {{title | currency: 'USD'}} format for currency
+
+7- Template Driven Forms
+-> 
+ 
