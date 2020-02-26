@@ -6,16 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Welcom Angular'
-
-  
-  constructor () {
-  
-  }
-
-  onSubmit(f) {
-    console.log(f);
-  }
-
-
+  title = 'LearningAngular';
 }

@@ -1,8 +1,4 @@
-<form #f="ngForm" (ngSubmit)="onSubmit(f)">
-    <label> Username </label>
-    <input type="text" ngModel name="username" class="form-control" placeholder="username">
-    <br>
-    <label> Password </label>
-    <input type="password" class="form-control" placeholder="password">
-    <button type="submit" class="submit"> Submit </button>
-</form>
+<navbar></navbar>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
